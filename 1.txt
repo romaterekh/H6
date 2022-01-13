@@ -1,0 +1,40 @@
+using System;
+
+namespace H6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int c = 0;
+       do
+            try
+            {
+                Console.WriteLine("Enter 2 numbers");
+                int a = Convert.ToInt32(Console.ReadLine());
+                int b = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"{Div(a, b)}");
+                    c = 0;
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+                c = 1;
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+                    c = 1;
+            }
+            while (c > 0);
+
+            static int Div(int a, int b)
+            {
+                return a / b;
+            }
+
+          
+
+        }
+    }
+}

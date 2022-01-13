@@ -1,0 +1,37 @@
+using System;
+
+namespace H6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int c = 0;
+            do
+                try
+                {
+                    Console.WriteLine("Enter 2 numbers");
+                    double a = Convert.ToInt32(Console.ReadLine());
+                    double b = Convert.ToInt32(Console.ReadLine());
+                    if (a==0 || b==0) throw new ApplicationException("Enter numbers > than 0");
+                    Console.WriteLine($"{Div(a, b)}");
+                    c = 0;
+                }
+                catch (ApplicationException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    c = 1;
+                }
+                
+            while (c > 0);
+
+            static double Div(double a, double b)
+            {
+                return a / b;
+            }
+
+
+
+        }
+    }
+}
